@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuProdutos">
+    <property name="title">
+     <string>Produtos</string>
+    </property>
+    <addaction name="actionCadastro"/>
+    <addaction name="actionEstoque"/>
+    <addaction name="actionAlterar_Apagar"/>
+   </widget>
+   <addaction name="menuProdutos"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionCadastro">
+   <property name="text">
+    <string>Cadastro</string>
+   </property>
+  </action>
+  <action name="actionEstoque">
+   <property name="text">
+    <string>Estoque</string>
+   </property>
+  </action>
+  <action name="actionAlterar_Apagar">
+   <property name="text">
+    <string>Alterar/Apagar</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
