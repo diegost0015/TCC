@@ -1,0 +1,11 @@
+CREATE TABLE Produtos (id INT NOT NULL AUTO_INCREMENT,
+Nome INT,
+EAN VARCHAR(15),
+Estoque VARCHAR(3),
+Preço DOUBLE,
+Altura VARCHAR(4),
+Largura VARCHAR(4),
+Comprimento VARCHAR(4),
+Descrição VARCHAR(100),
+PRIMARY KEY (id)
+);
