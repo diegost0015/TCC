@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 class Janela(QMainWindow):
     def __init__(self):
         #super para chamar a classe construtora da classe
-        super().__init__(self)
+        super().__init__()
 
         #abaixo as definições da janela...a altura e distancia na tela
         self.topo = 100 #lugar no topo da tela
@@ -24,4 +24,4 @@ class Janela(QMainWindow):
 aplicacao = QApplication(sys.argv) #parâmetros para mexer no nosso sistema...fechar janela por exemplo.
 #instanciando nossa janela
 j = Janela()
-sys.exit(aplicacao.exec_())
+sys.exit(aplicacao.exec())
