@@ -9,7 +9,7 @@ banco = mysql.connector.connect(
 
 )
 
-def chama_tela_cadastro():
+def chama_tela_cadastro(self):
     tela_cadastro.show()
 
 def chama_tela_estoque():
@@ -52,11 +52,27 @@ def cadastro():
     tela_cadastro.lineEdit.setText("")
 
 
+def deletar():
+    linha = tela_estoque.lineEdit.text()
+
+    cursor = banco.cursor()
+    comando_SQL = "DELETE FROM produtos WHERE id = (%s)"
+    dados = (str(linha))
+    cursor.execute(comando_SQL, (dados,))
+    banco.commit()
+
+    print("Produto Deletado:", linha)
+
+    tela_estoque.lineEdit.setText("")
+
+
 app = QtWidgets.QApplication([])
 menu = uic.loadUi("Menu.ui")
 tela_cadastro = uic.loadUi("Cadastro_Produto.ui")
 tela_estoque = uic.loadUi("Estoque.ui")
+tela_deletarProduto = uic.loadUi("Deletar_Produto.ui")
 tela_cadastro.pushButton.clicked.connect(cadastro)
+tela_deletarProduto.pushButton.clicked.connect(deletar)
 menu.actionCadastro.triggered.connect(chama_tela_cadastro)
 menu.actionEstoque.triggered.connect(chama_tela_estoque)
 

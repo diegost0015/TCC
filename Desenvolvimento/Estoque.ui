@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>533</width>
-    <height>524</height>
+    <width>768</width>
+    <height>585</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,12 +16,21 @@
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>40</y>
-     <width>471</width>
-     <height>431</height>
+     <x>20</x>
+     <y>20</y>
+     <width>721</width>
+     <height>541</height>
     </rect>
    </property>
+   <property name="frameShape">
+    <enum>QFrame::HLine</enum>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
   </widget>
  </widget>
  <resources/>
