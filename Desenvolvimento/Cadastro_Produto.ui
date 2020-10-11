@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Form</class>
  <widget class="QWidget" name="Form">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="enabled">
    <bool>true</bool>
   </property>
@@ -9,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>644</width>
-    <height>530</height>
+    <width>751</width>
+    <height>573</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,9 +48,6 @@
      <widget class="QLineEdit" name="lineEdit_Largura"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_Comprimento"/>
-    </item>
-    <item>
      <widget class="QLineEdit" name="lineEdit_Descricao"/>
     </item>
    </layout>
@@ -72,7 +72,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>110</y>
+     <y>120</y>
      <width>47</width>
      <height>13</height>
     </rect>
@@ -85,7 +85,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>150</y>
+     <y>170</y>
      <width>81</width>
      <height>20</height>
     </rect>
@@ -98,7 +98,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>200</y>
+     <y>230</y>
      <width>47</width>
      <height>13</height>
     </rect>
@@ -139,7 +139,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>250</y>
+     <y>280</y>
      <width>47</width>
      <height>13</height>
     </rect>
@@ -152,26 +152,13 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>300</y>
+     <y>320</y>
      <width>47</width>
-     <height>13</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Largura</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>340</y>
-     <width>71</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Comprimento</string>
+    <string>Largura</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_8">

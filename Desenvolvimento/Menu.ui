@@ -6,15 +6,9 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>791</width>
-    <height>529</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>791</width>
-    <height>529</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -25,24 +19,57 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>791</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menuProdutos">
+   <widget class="QMenu" name="menuCadastro">
     <property name="title">
-     <string>Produtos</string>
+     <string>Cadastro</string>
     </property>
-    <addaction name="actionCadastro"/>
-    <addaction name="actionEstoque"/>
-    <addaction name="actionAlterar_Apagar"/>
+    <addaction name="actionUsu_rio"/>
+    <addaction name="actionProduto"/>
    </widget>
-   <addaction name="menuProdutos"/>
+   <widget class="QMenu" name="menuCompras">
+    <property name="title">
+     <string>Compras</string>
+    </property>
+    <addaction name="actionCaixa"/>
+    <addaction name="actionEstoque"/>
+   </widget>
+   <widget class="QMenu" name="menuOr_amento">
+    <property name="title">
+     <string>Orçamento</string>
+    </property>
+    <addaction name="actionOr_amento_Cliente_Empresa"/>
+    <addaction name="actionOr_amento_Papelaria"/>
+   </widget>
+   <widget class="QMenu" name="menuConfigura_es">
+    <property name="title">
+     <string>Configurações</string>
+    </property>
+    <addaction name="actionReset_de_Senha"/>
+    <addaction name="actionLogout"/>
+   </widget>
+   <addaction name="menuCadastro"/>
+   <addaction name="menuCompras"/>
+   <addaction name="menuOr_amento"/>
+   <addaction name="menuConfigura_es"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionCadastro">
+  <action name="actionUsu_rio">
    <property name="text">
-    <string>Cadastro</string>
+    <string>Usuário</string>
+   </property>
+  </action>
+  <action name="actionProduto">
+   <property name="text">
+    <string>Produto</string>
+   </property>
+  </action>
+  <action name="actionCaixa">
+   <property name="text">
+    <string>Caixa</string>
    </property>
   </action>
   <action name="actionEstoque">
@@ -50,9 +77,24 @@
     <string>Estoque</string>
    </property>
   </action>
-  <action name="actionAlterar_Apagar">
+  <action name="actionOr_amento_Cliente_Empresa">
    <property name="text">
-    <string>Alterar/Apagar</string>
+    <string>Orçamento - Cliente Empresa</string>
+   </property>
+  </action>
+  <action name="actionOr_amento_Papelaria">
+   <property name="text">
+    <string>Orçamento - Papelaria</string>
+   </property>
+  </action>
+  <action name="actionReset_de_Senha">
+   <property name="text">
+    <string>Reset de Senha</string>
+   </property>
+  </action>
+  <action name="actionLogout">
+   <property name="text">
+    <string>Logout</string>
    </property>
   </action>
  </widget>
