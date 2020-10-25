@@ -6,122 +6,88 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>645</width>
-    <height>605</height>
+    <width>750</width>
+    <height>594</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label_6">
+  <widget class="QPushButton" name="pushButton_editar">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>390</y>
-     <width>47</width>
-     <height>13</height>
+     <x>240</x>
+     <y>550</y>
+     <width>75</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Largura</string>
+    <string>Editar</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QPushButton" name="pushButton_deletar">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>340</y>
-     <width>47</width>
-     <height>13</height>
+     <x>490</x>
+     <y>550</y>
+     <width>75</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Altura</string>
+    <string>Deletar</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>430</y>
-     <width>71</width>
+     <x>200</x>
+     <y>70</y>
+     <width>391</width>
      <height>20</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Comprimento</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>240</y>
-     <width>81</width>
-     <height>20</height>
-    </rect>
+   <property name="font">
+    <font>
+     <family>Segoe UI</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
-    <string>Estoque</string>
+    <string>Digite o código de barras do produto a ser editado</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QPushButton" name="pushButton_pesquisar">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>570</x>
      <y>150</y>
      <width>91</width>
-     <height>20</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="text">
-    <string>Nome do Produto</string>
-   </property>
-   <property name="buddy">
-    <cstring>lineEdit_NomeProduto</cstring>
+    <string>Pesquisar</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>200</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>EAN</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_8">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>480</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Descrição</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>130</y>
-     <width>381</width>
-     <height>391</height>
+     <x>240</x>
+     <y>120</y>
+     <width>321</width>
+     <height>411</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLineEdit" name="lineEdit_NomeProduto"/>
+     <widget class="QLineEdit" name="lineEdit_Ean"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_Ean"/>
+     <widget class="QLineEdit" name="lineEdit_NomeProduto"/>
     </item>
     <item>
      <widget class="QLineEdit" name="lineEdit_Estoque"/>
@@ -136,63 +102,73 @@
      <widget class="QLineEdit" name="lineEdit_Largura"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_Comprimento"/>
-    </item>
-    <item>
      <widget class="QLineEdit" name="lineEdit_Descricao"/>
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>290</y>
-     <width>47</width>
-     <height>13</height>
+     <x>130</x>
+     <y>140</y>
+     <width>111</width>
+     <height>381</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Preço</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>540</y>
-     <width>141</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="autoFillBackground">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(85, 170, 255)</string>
-   </property>
-   <property name="text">
-    <string>Editar</string>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>70</y>
-     <width>371</width>
-     <height>22</height>
-    </rect>
-   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Altura</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>EAN</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Descrição</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Nome do Produto</string>
+      </property>
+      <property name="buddy">
+       <cstring>lineEdit_NomeProduto</cstring>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Largura</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Preço</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Estoque</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

@@ -2,26 +2,85 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1250</width>
+    <height>800</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>MainWindow</string>
+  <property name="minimumSize">
+   <size>
+    <width>1250</width>
+    <height>800</height>
+   </size>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <property name="acceptDrops">
+   <bool>false</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Papelaria ABC</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>Imagens/Logo.jpeg</normalon>
+   </iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);
+
+</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>23</width>
+    <height>24</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="styleSheet">
+       <string notr="true">
+background-repeat: no-repeat;
+background-position: center;
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>Logo.jpeg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>false</bool>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>21</height>
+     <width>1250</width>
+     <height>26</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(170, 255, 127);</string>
    </property>
    <widget class="QMenu" name="menuCadastro">
     <property name="title">
@@ -36,6 +95,7 @@
     </property>
     <addaction name="actionCaixa"/>
     <addaction name="actionEstoque"/>
+    <addaction name="actionEditar_Estoque"/>
    </widget>
    <widget class="QMenu" name="menuOr_amento">
     <property name="title">
@@ -97,7 +157,14 @@
     <string>Logout</string>
    </property>
   </action>
+  <action name="actionEditar_Estoque">
+   <property name="text">
+    <string>Editar Estoque</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="Imagens/Img.qrc"/>
+ </resources>
  <connections/>
 </ui>
