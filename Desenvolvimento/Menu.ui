@@ -102,7 +102,6 @@ background-position: center;
      <string>Orçamento</string>
     </property>
     <addaction name="actionOr_amento_Cliente_Empresa"/>
-    <addaction name="actionOr_amento_Papelaria"/>
    </widget>
    <widget class="QMenu" name="menuConfigura_es">
     <property name="title">
