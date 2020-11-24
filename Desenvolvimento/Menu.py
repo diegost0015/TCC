@@ -13,6 +13,7 @@ banco = mysql.connector.connect(
 )
 
 lista = []
+lista2 = []
 
 def chama_tela_cadastro():
     tela_cadastro.show()
@@ -31,11 +32,13 @@ def chama_tela_Orcamento_Papelaria():
     tela_orcamento_papelaria.show()    
 
 
-def chama_tela_caixa2():
-    tela_compra.show()
+
 
 def limpa_tabela():
     tela_caixa.tableWidget.clear()
+
+def limpa_lista():
+    lista.clear()
     
 
 def chama_tela_estoque():
@@ -95,8 +98,8 @@ def cadastro_Orcamento_Cliente():
     linha8 = tela_orcamento_cliente.lineEdit_desc.text()
 
     cursor = banco.cursor()
-    comando_SQL = "INSERT INTO realizar_orcamento (Nome_Produto,Descrição_Produto,Unidade,Qtd,Desconto,Preco_uni,Preco_total,Frete) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
-    dados = (str(linha1), str(linha8), str(linha2), str(linha3), str(linha7), str(linha4),  str(linha5), str(linha6))
+    comando_SQL = "INSERT INTO realizar_orcamento (Nome_Produto,Frete,Unidade,Qtd,Desconto,Preco_uni,Preco_total,Descrição_Produto) VALUES (%s,%s,%s,%s,%s,%s,%s,%s)"
+    dados = (str(linha1), str(linha6), str(linha2), str(linha3), str(linha7), str(linha4),  str(linha5), str(linha8))
     cursor.execute(comando_SQL, dados)
     banco.commit()
 
@@ -109,7 +112,7 @@ def cadastro_Orcamento_Cliente():
     tela_orcamento_cliente.spinBox_desconto.setValue(0)
     tela_orcamento_cliente.lineEdit_desc.setText("")
 
-    QMessageBox.about(tela_orcamento_cliente, "Aviso","Produto Cadastrado!")
+    QMessageBox.about(tela_orcamento_cliente, "Aviso","Orçamento Criado!")
 
 def Orcamento_Cliente():
     tela_orcamento_cliente.show()
@@ -228,28 +231,28 @@ def Caixa():
         QMessageBox.about(tela_editarEstoque, "Aviso","Produto Não encontrado!")      
        
 def Caixa_Adicionar():
-    soma = []
-    total = 0
-    lista_final = []
+    global total2 
+    soma2 = []
     linha = tela_caixa.lineEdit.text()
     cursor = banco.cursor()
     comando_SQL = "SELECT Nome, Estoque, Preco, EAN FROM  produtos WHERE EAN = (%s)"
     dados = (str(linha))
     cursor.execute(comando_SQL, (dados,))
     dados1 = cursor.fetchall()
-
-    lista.append([dados1[0][0],tela_caixa.comboBox.currentText(),dados1[0][2],dados1[0][3]])
     
+    lista.append([dados1[0][0],tela_caixa.comboBox.currentText(),dados1[0][2],dados1[0][3]])
+
+
+    data_compra = tela_caixa.calendarWidget.selectedDate()
+
     tela_caixa.pushButton_Limpar.clicked.connect(limpa_tabela)
     tela_caixa.tableWidget.setRowCount(len(lista))
     tela_caixa.tableWidget.setColumnCount(4)
 
     for list in lista:
-        soma.append((list[2])*float(list[1]))
-        total = sum(soma)
-        tela_caixa.label_valor.setText(str(float("%.3f" % total)))
-        #lista_final.append(lista[0],lista[3],)   
-        print(lista_final)
+        soma2.append((list[2])*float(list[1]))
+        total2 = sum(soma2)
+        tela_caixa.label_valor.setText(str(float("%.3f" % total2)))  
         for i in range(0, len(lista)):
             for j in range(0, 4):
                     tela_caixa.tableWidget.setItem(i,j,QtWidgets.QTableWidgetItem(str(lista[i][j])))
@@ -258,23 +261,100 @@ def Caixa_Adicionar():
     
 
     
-
-    #cursor = banco.cursor()
-    #comando_SQL = "UPDATE produtos SET Estoque = Estoque - (%s); WHERE EAN = (%s)"
-    #dados1 = (str(list[1]))
-    #dados2 = (str(dados1[0][3]))
-    #cursor.execute(comando_SQL, dados1, (dados2,))
-
-
-    #if tela_compra.radioButton_1.isChecked() == True:
-        #tela_compra.lineEdit.setEnabled(True)
-        #tela_compra.label_4.setEnabled(True)
-        #tela_compra.label_5.setEnabled(True)
-    #else:
-        #tela_compra.lineEdit.setEnabled(False)
-        #tela_compra.label_4.setEnabled(False)
-        #tela_compra.label_5.setEnabled(False)
+def finalizar_compra():
     
+    total = 0 
+    frm_pagamento = ""
+    data_compra = ""
+    soma = []
+    lista_final = []
+    linha = tela_caixa.lineEdit.text()
+    cursor = banco.cursor()
+
+    comando_SQL = "SELECT Nome, Estoque, Preco, EAN FROM  produtos WHERE EAN = (%s)"
+    dados = (str(linha))
+    cursor.execute(comando_SQL, (dados,))
+    dados1 = cursor.fetchall()
+
+    
+
+    if tela_caixa.radioButton_1.isChecked() == True:
+        frm_pagamento = tela_caixa.radioButton_1.text()  
+
+
+    elif tela_caixa.radioButton_2.isChecked() == True:
+        frm_pagamento = tela_caixa.radioButton_2.text()
+
+    elif tela_caixa.radioButton_3.isChecked() == True:
+        frm_pagamento = tela_caixa.radioButton_3.text()
+
+
+    data_compra = tela_caixa.calendarWidget.selectedDate()
+    print (data_compra)
+   
+    for list in lista:
+        soma.append((list[2])*float(list[1]))
+        total = sum(soma)
+        tela_caixa.label_valor.setText(str(float("%.3f" % total)))
+        lista_final.append([list[0],list[3],list[2],list[1],frm_pagamento,data_compra])   
+        print(lista_final)
+
+
+    for list in lista_final:
+        cursor = banco.cursor()
+        comando_SQL = "INSERT INTO compra (nome, ean, preco, qtd, forma_pg, data_compra) VALUES (%s,%s,%s,%s,%s,%s)"
+        dados = (str(list[0]), str(list[1]), str(list[2]), str(list[3]), str(list[4]), str(list[5]))
+        cursor.execute(comando_SQL, dados)
+        banco.commit()
+    QMessageBox.about(tela_caixa, "Aviso","Compra Finalizada")
+    limpa_lista()
+    limpa_tabela()
+    
+
+
+def troco():
+    try:
+        resultado = 0
+        troco = tela_caixa.lineEdit_2.text()
+        print(total2)
+        resultado =  float(troco) - total2
+        tela_caixa.label_10.setText(str(float("%.3f" % resultado)))
+    except NameError:
+        QMessageBox.about(tela_caixa, "Aviso","Valor de compra não encontrado!")     
+    
+def relatorio_compras():   
+    tela_RCompras.show()
+
+    cursor = banco.cursor()
+    comando_SQL = "SELECT *FROM  compra"
+    cursor.execute(comando_SQL)
+    dados = cursor.fetchall()
+
+    tela_RCompras.tableWidget.setRowCount(len(dados))
+    tela_RCompras.tableWidget.setColumnCount(7)
+
+    for i in range(0, len(dados)):
+        for j in range(0, 7):
+            tela_RCompras.tableWidget.setItem(i,j,QtWidgets.QTableWidgetItem(str(dados[i][j])))
+
+
+def deletar_compras():
+    try: 
+        linha = tela_RCompras.lineEdit.text()
+        if linha != "":
+            cursor = banco.cursor()
+            comando_SQL = "DELETE  FROM compra WHERE id = (%s)"
+            dados = (str(linha))
+            cursor.execute(comando_SQL, (dados,))
+            banco.commit()
+
+            QMessageBox.about(tela_RCompras, "Aviso","Registro Apagado!")
+        
+        else:
+            QMessageBox.about(tela_RCompras, "Aviso","Revise os campos!")
+
+    except Exception:    
+            QMessageBox.about(tela_RCompras, "Aviso","Ocorreu um erro, revise os campos e tente novamente!")  
 
 
 
@@ -289,16 +369,23 @@ tela_estoque = uic.loadUi("Estoque.ui")
 tela_orcamento_cliente = uic.loadUi("Realizar_Orcamento_Cliente_Empresa.ui")
 #tela_orcamento_papelaria = uic.loadUi("Orcamento_Papelaria.ui")
 tela_editarEstoque = uic.loadUi("Estoque_Editar.ui")
-tela_compra = uic.loadUi("Caixa_Final.ui")
+tela_RCompras = uic.loadUi("Relatorio_Compras.ui")
+
 
 tela_cadastro.pushButton.clicked.connect(cadastro)
 tela_editarEstoque.pushButton_deletar.clicked.connect(deletar)
 tela_caixa.pushButton_pesquisa.clicked.connect(Caixa)
 tela_caixa.pushButton.clicked.connect(Caixa_Adicionar)
+tela_caixa.pushButton_Limpar.clicked.connect(limpa_tabela)
+tela_caixa.pushButton_Limpar.clicked.connect(limpa_lista)
 tela_editarEstoque.pushButton_pesquisar.clicked.connect(pesquisar)
 tela_editarEstoque.pushButton_editar.clicked.connect(editar)
 tela_estoque.pushButton.clicked.connect(chama_tela_estoque)
-tela_caixa.pushButton_2.clicked.connect(chama_tela_caixa2)
+tela_caixa.pushButton_2.clicked.connect(finalizar_compra)
+tela_caixa.pushButton_calc.clicked.connect(troco)
+tela_RCompras.pushButton_2.clicked.connect(deletar_compras)
+tela_RCompras.pushButton_atualizar.clicked.connect(relatorio_compras)
+
 tela_orcamento_cliente.pushButton_criar.clicked.connect(cadastro_Orcamento_Cliente)
 tela_orcamento_cliente.pushButton_atualizar.clicked.connect(Orcamento_Cliente)
 
@@ -309,6 +396,7 @@ menu.actionCaixa.triggered.connect(chama_tela_caixa)
 menu.actionEditar_Estoque.triggered.connect(chama_tela_editar)
 #menu.actionOr_amento_Papelaria.triggered.connect(chama_tela_Orcamento_Papelaria)
 menu.actionOr_amento_Cliente_Empresa.triggered.connect(chama_tela_Orcamento_Cliente)
+menu.actionRelat_rio_Compras.triggered.connect(relatorio_compras)
 
 menu.show()
 app.exec()

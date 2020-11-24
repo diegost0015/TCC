@@ -2,14 +2,14 @@
 
 CREATE TABLE realizar_orcamento (
 Codigo int not null auto_increment,
-Descrição_Produto VARCHAR(100) NOT NULL ,
+Nome_Produto varchar(100) not null,
+Frete DOUBLE NOT NULL,
 Unidade int(50) NOT NULL ,
-Qtd int(255) NOT NULL,
-Preco_lista DOUBLE(10) NOT NULL,
-Desconto DOUBLE(10) NOT NULL,
-Preco_uni DOUBLE(10) NOT NULL,
-Preco_total DOUBLE(10) NOT NULL,
-Frete DOUBLE(10) NOT NULL,
+Qtd int(3) NOT NULL,
+Desconto DOUBLE NOT NULL,
+Preco_uni DOUBLE NOT NULL,
+Preco_total DOUBLE NOT NULL,
+Descrição_Produto longtext,
 primary key(codigo)
 ); 
 

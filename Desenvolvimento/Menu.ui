@@ -94,6 +94,7 @@ background-position: center;
      <string>Compras</string>
     </property>
     <addaction name="actionCaixa"/>
+    <addaction name="actionRelat_rio_Compras"/>
     <addaction name="actionEstoque"/>
     <addaction name="actionEditar_Estoque"/>
    </widget>
@@ -159,6 +160,11 @@ background-position: center;
   <action name="actionEditar_Estoque">
    <property name="text">
     <string>Editar Estoque</string>
+   </property>
+  </action>
+  <action name="actionRelat_rio_Compras">
+   <property name="text">
+    <string>Relatório Compras</string>
    </property>
   </action>
  </widget>

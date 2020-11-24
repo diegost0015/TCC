@@ -301,7 +301,7 @@
      </column>
      <column>
       <property name="text">
-       <string>Descrição</string>
+       <string>Frete</string>
       </property>
      </column>
      <column>
@@ -331,7 +331,7 @@
      </column>
      <column>
       <property name="text">
-       <string>Frete</string>
+       <string>Descrição</string>
       </property>
      </column>
     </widget>
